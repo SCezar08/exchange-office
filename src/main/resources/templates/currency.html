@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Currency</title>
+</head>
+<body>
+<h3>Bnr exchange rate for: 21-12-2023</h3>
+<hr>
+<table border="1">
+    <thead>
+    <tr>
+        <th>Currency</th>
+        <th>ExchangeRate</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="currency : ${currencies}">
+        <td th:text="${currency.currencyName}"></td>
+        <td th:text="${currency.exchangeRate}"></td>
+    </tr>
+    </tbody>
+</table>
+<form action="/ron-to-foreign" method="get">
+    <button type="submit">Exchange calculator: RON -> Foreign currency</button>
+</form>
+<form action="/foreign-to-ron" method="get">
+    <button type="submit">Exchange calculator: Foreign currency -> RON</button>
+</form>
+
+</body>
+</html>
+

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Foreign to RON exchanger</title>
+</head>
+<body>
+<h3>Currency converter</h3>
+<form action="/foreign-to-ron" method="post">
+    <label th:name="amount">Amount:</label>
+    <input type="text" id="amount" name="amount" required>
+
+
+    <label for="dropDownList"></label><select class="form-control" id="dropDownList" name="currencyOption">
+    <option value="0">select option</option>
+    <option th:each="currency : ${currencies}" th:text="${currency.currencyName}"></option>
+</select>
+
+    <label th:type="String">TO: RON</label>
+
+    <form th:action="@{/convert}" method="POST">
+        <button type="submit">Convert</button>
+    </form>
+
+    <label th:name="result">Result: </label> <label th:text="${finalAmount}"></label>
+
+</form>
+</body>
+</html>
