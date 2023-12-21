@@ -5,7 +5,6 @@
     <title>RON to foreign exchanger</title>
 </head>
 <body>
-<h3>Currency converter</h3>
 <form action="/ron-to-foreign" method="post">
     <label th:name="amount">Amount:</label>
     <input type="text" id="amount" name="amount" required>
@@ -19,6 +18,12 @@
 
     <form th:action="@{/convert}" method="POST">
         <button type="submit">Convert</button>
+    </form>
+    <form>
+        <input type="button" value="Back" onclick="window.location.href='http://localhost:8080/ron-to-foreign?'">
+    </form>
+    <form>
+        <input type="button" value="Homepage" onclick="window.location.href='http://localhost:8080/currency'">
     </form>
 
     <label th:name="result">Result: </label> <label th:text="${finalAmount}"></label>
