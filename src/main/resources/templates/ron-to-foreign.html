@@ -11,10 +11,11 @@
 
     <label th:type="String">RON TO:</label>
 
-    <label for="dropDownList"></label><select class="form-control" id="dropDownList" name="currencyOption">
-    <option value="0">select option</option>
-    <option th:each="currency : ${currencies}" th:text="${currency.currencyName}"></option>
-</select>
+    <label for="dropDownList"></label>
+    <select class="form-control" id="dropDownList" name="currencyOption" required>
+        <option value="">select option</option>
+        <option th:each="currency : ${currencies}" th:text="${currency.currencyName}"></option>
+    </select>
 
     <form th:action="@{/convert}" method="POST">
         <button type="submit">Convert</button>

@@ -10,8 +10,8 @@
     <input type="text" id="amount" name="amount" required>
 
 
-    <label for="dropDownList"></label><select class="form-control" id="dropDownList" name="currencyOption">
-    <option value="0">select option</option>
+    <label for="dropDownList"></label><select class="form-control" id="dropDownList" name="currencyOption" required>
+    <option value="">select option</option>
     <option th:each="currency : ${currencies}" th:text="${currency.currencyName}"></option>
 </select>
 
