@@ -22,14 +22,18 @@
     <form th:action="@{/convert}" method="POST">
         <button type="submit">Convert</button>
     </form>
-    <form>
-        <input type="button" value="Back" onclick="window.location.href='http://localhost:8080/foreign-to-ron?'">
-    </form>
+
     <form>
         <input type="button" value="Homepage" onclick="window.location.href='http://localhost:8080/currency'">
     </form>
 
     <label th:name="result">Result: </label> <label th:text="${finalAmount}"></label>
+
+    <div th:if="${finalAmount}">
+        <form>
+            <input type="button" value="Back" onclick="window.location.href='http://localhost:8080/foreign-to-ron?'">
+        </form>
+    </div>
 
 </form>
 </body>
