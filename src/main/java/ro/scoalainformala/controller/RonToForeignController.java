@@ -32,9 +32,11 @@ public class RonToForeignController {
     public String convert(@RequestParam("amount") String amount,
                           @RequestParam("currencyOption") String selectedCurrency,
                           Model model) {
+        List<Currency> currencies = service.getCurrency();
         double originalAmount = Double.parseDouble(amount);
         double finalAmount = service.convertRonToForeign(originalAmount, selectedCurrency);
 
+        model.addAttribute("currencies", currencies);
         model.addAttribute("originalAmount", originalAmount);
         model.addAttribute("finalAmount", finalAmount);
         model.addAttribute("selectedCurrency", selectedCurrency);
