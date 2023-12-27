@@ -3,9 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <title>Currency</title>
+    <link th:href = "@{/css/table.css}" rel="stylesheet">
+    <link th:href = "@{/css/button.css}" rel="stylesheet">
+    <link th:href = "@{/css/header1.css}" rel="stylesheet">
+</head>
 </head>
 <body>
-<h3>Bnr exchange rates</h3>
+
+<div class="seven">
+    <h1>Bnr exchange rates</h1>
+</div>
 <hr>
 <table border="1">
     <thead>
@@ -22,15 +29,14 @@
     </tbody>
 </table>
 <form action="/ron-to-foreign" method="get">
-    <button type="submit">Exchange calculator: RON -> Foreign currency</button>
+    <button type="submit" class="button button2">Exchange calculator: RON -> Foreign currency</button>
 </form>
 <form action="/foreign-to-ron" method="get">
-    <button type="submit">Exchange calculator: Foreign currency -> RON</button>
+    <button type="submit" class="button button2">Exchange calculator: Foreign currency -> RON</button>
 </form>
 <form action="/update-database" method="get">
-    <button type="submit">Update Database</button>
+    <button type="submit" class="button button2">Update Database</button>
 </form>
 
 </body>
 </html>
-

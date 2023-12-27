@@ -3,15 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <title>Foreign to RON exchanger</title>
+    <link th:href = "@{/css/button.css}" rel="stylesheet">
+    <link th:href = "@{/css/amount-border.css}" rel="stylesheet">
 </head>
 <body>
 <form action="/foreign-to-ron" method="post">
     <label th:name="amount">Amount:</label>
-    <input type="text" id="amount" name="amount" required>
+    <input type="text" id="amount" name="amount" required class="amount-border">
 
 
     <label for="dropDownList"></label><select class="form-control" id="dropDownList" name="currencyOption" required>
-    <option value="">select option</option>
+    <option value="">Select currency</option>
     <option th:each="currency : ${currencies}" th:text="${currency.currencyName}"></option>
 </select>
 
@@ -20,11 +22,11 @@
 
 
     <form th:action="@{/convert}" method="POST">
-        <button type="submit">Convert</button>
+        <button type="submit" class="button button2">Convert</button>
     </form>
 
     <form>
-        <input type="button" value="Homepage" onclick="window.location.href='http://localhost:8080/currency'">
+        <input type="button" value="Homepage" onclick="window.location.href='http://localhost:8080/currency'" class="button button2">
     </form>
 
     <div th:if="${error}" class="error-message">

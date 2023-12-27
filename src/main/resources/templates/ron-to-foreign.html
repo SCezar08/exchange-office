@@ -1,36 +1,39 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>Exchanger</title>
+    <link th:href = "@{/css/button.css}" rel="stylesheet">
+    <link th:href = "@{/css/amount-border.css}" rel="stylesheet">
+
 </head>
 <body>
 <form action="/ron-to-foreign" method="post">
     <label th:name="amount">Amount:</label>
-    <input type="text" id="amount" name="amount" required th:maxlength="15" th:min="0.01">
+    <input type="text" id="amount" name="amount" required th:maxlength="15" th:min="0.01" class="amount-border">
 
 
     <label th:type="String">RON TO:</label>
 
     <label for="dropDownList"></label>
     <select class="form-control" id="dropDownList" name="currencyOption" required>
-        <option value="">select option</option>
+        <option value="">Select currency </option>
         <option th:each="currency : ${currencies}" th:text="${currency.currencyName}"></option>
     </select>
 
     <form th:action="@{/convert}" method="POST">
-        <button type="submit">Convert</button>
+        <button type="submit" class="button button2">Convert</button>
     </form>
 
     <form>
-        <input type="button" value="Homepage" onclick="window.location.href='http://localhost:8080/currency'">
+        <input type="button" value="Homepage" onclick="window.location.href='http://localhost:8080/currency'" class="button button2">
     </form>
 
     <div th:if="${error}" class="error-message">
         <p style="color:red;" th:text="${error}"></p>
     </div>
 
-    <label th:name="result">Result: </label> <label th:text="${finalAmount}"></label>
+    <label th:name="result">Result: </label> <label th:text="${finalAmount}"></label> <label th:text="${selectedCurrency}"></label>
 
 
 </form>

@@ -1,0 +1,29 @@
+<style>
+  .button {
+    background-color: #04AA6D;
+    border: none;
+    color: white;
+    padding: 14px 24px; /* Adjust padding values for height and width */
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border-radius: 8px; /* Add border-radius for rounded corners */
+  }
+
+  .button2 {
+    background-color: white;
+    color: black;
+    border: 2px solid #008CBA;
+    padding: 14px 24px; /* Adjust padding values for height and width */
+    border-radius: 8px; /* Add border-radius for rounded corners */
+  }
+
+  .button2:hover {
+    background-color: #008CBA;
+    color: white;
+  }
+</style>

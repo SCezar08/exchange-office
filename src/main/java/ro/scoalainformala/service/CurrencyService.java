@@ -1,5 +1,6 @@
 package ro.scoalainformala.service;
 
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ro.scoalainformala.model.Currency;
