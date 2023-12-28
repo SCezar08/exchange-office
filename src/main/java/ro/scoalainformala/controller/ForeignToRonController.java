@@ -50,11 +50,13 @@ public class ForeignToRonController {
         }
 
         double finalAmount = service.convertForeignToRon(originalAmount, selectedCurrency);
+        String selectedCurrencyFullName = Currency.getCurrencyFullName(selectedCurrency);
 
         model.addAttribute("currencies", currencies);
         model.addAttribute("originalAmount", originalAmount);
         model.addAttribute("finalAmount", finalAmount);
         model.addAttribute("selectedCurrency", selectedCurrency);
+        model.addAttribute("selectedCurrencyFullName", selectedCurrencyFullName);
         return "foreign-to-ron";
     }
 }

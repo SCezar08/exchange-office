@@ -18,7 +18,7 @@
     <label for="dropDownList"></label>
     <select class="form-control" id="dropDownList" name="currencyOption" required>
         <option value="">Select currency </option>
-        <option th:each="currency : ${currencies}" th:text="${currency.currencyName}"></option>
+        <option th:each="currency : ${currencies}" th:value="${currency.currencyName}" th:text="${currency.currencyName + ' ' + currency.fullName}"></option>
     </select>
 
     <form th:action="@{/convert}" method="POST">
@@ -33,7 +33,10 @@
         <p style="color:red;" th:text="${error}"></p>
     </div>
 
-    <label th:name="result">Result: </label> <label th:text="${finalAmount}"></label> <label th:text="${selectedCurrency}"></label>
+    <label th:name="result">Result: </label>
+    <label th:text="${finalAmount}"></label>
+    <label th:text="${selectedCurrency}"></label>
+    <label th:text="${selectedCurrencyFullName}"></label>
 
 
 </form>

@@ -41,8 +41,9 @@ public class ListOfParsedCurrency {
 
                     String currencyName = element.getAttribute("currency");
                     double exchangeRate = Double.parseDouble(element.getTextContent());
+                    String fullName = Currency.getCurrencyFullName(currencyName);
 
-                    Currency currency = new Currency(currencyName, exchangeRate);
+                    Currency currency = new Currency(currencyName, exchangeRate, fullName);
                     currencies.add(currency);
 
                 }

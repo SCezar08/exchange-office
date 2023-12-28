@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import ro.scoalainformala.model.Currency;
 import ro.scoalainformala.service.CurrencyService;
@@ -28,7 +28,7 @@ public class RonToForeignController {
         return "ron-to-foreign";
     }
 
-    @RequestMapping("/ron-to-foreign")
+    @PostMapping("/ron-to-foreign")
     public String convert(@RequestParam("amount") String amount,
                           @RequestParam("currencyOption") String selectedCurrency,
                           Model model) {
@@ -48,12 +48,15 @@ public class RonToForeignController {
             return "ron-to-foreign";
         }
 
+
         double finalAmount = service.convertRonToForeign(originalAmount, selectedCurrency);
+        String selectedCurrencyFullName = Currency.getCurrencyFullName(selectedCurrency);
 
         model.addAttribute("currencies", currencies);
         model.addAttribute("originalAmount", originalAmount);
         model.addAttribute("finalAmount", finalAmount);
         model.addAttribute("selectedCurrency", selectedCurrency);
+        model.addAttribute("selectedCurrencyFullName", selectedCurrencyFullName);
         return "ron-to-foreign";
     }
 }

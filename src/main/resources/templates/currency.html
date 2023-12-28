@@ -23,7 +23,7 @@
     </thead>
     <tbody>
     <tr th:each="currency : ${currencies}">
-        <td th:text="${currency.currencyName}"></td>
+        <td th:text="${currency.currencyName + currency.fullName}"></td>
         <td th:text="${currency.exchangeRate}"></td>
     </tr>
     </tbody>
