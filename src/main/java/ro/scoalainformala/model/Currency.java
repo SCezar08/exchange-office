@@ -70,8 +70,10 @@ public class Currency {
                 '}';
     }
 
+    // Static map to store currency codes and their corresponding full names
     private static final Map<String, String> CURRENCY_FULL_NAMES = new HashMap<>();
 
+    // Static block to initialize the map with currency code and full name pairs
     static {
         CURRENCY_FULL_NAMES.put("AED", " (United Arab Emirates Dirham)");
         CURRENCY_FULL_NAMES.put("AUD", " (Australian Dollar)");
@@ -106,7 +108,9 @@ public class Currency {
         CURRENCY_FULL_NAMES.put("ZAR", " (South African Rand)");
     }
 
+    // Method to retrieve the full name of a given currency code
     public static String getCurrencyFullName(String currencyCode) {
+        // Using getOrDefault to handle cases where the currency code is not found in the map
         return CURRENCY_FULL_NAMES.getOrDefault(currencyCode, currencyCode);
     }
 }

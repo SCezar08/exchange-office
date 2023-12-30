@@ -12,10 +12,11 @@
     <input type="text" id="amount" name="amount" required class="amount-border">
 
 
-    <label for="dropDownList"></label><select class="form-control" id="dropDownList" name="currencyOption" required>
-    <option value="">Select currency</option>
-    <option th:each="currency : ${currencies}" th:text="${currency.currencyName}"></option>
-</select>
+    <label for="dropDownList"></label>
+    <select class="form-control" id="dropDownList" name="currencyOption" required>
+        <option value="">Select currency </option>
+        <option th:each="currency : ${currencies}" th:value="${currency.currencyName}" th:text="${currency.currencyName + ' ' + currency.fullName}"></option>
+    </select>
 
     <label th:type="String">TO: RON</label>
 
@@ -33,10 +34,7 @@
         <p style="color:red;" th:text="${error}"></p>
     </div>
 
-    <label th:name="result">Result: </label>
     <label th:text="${finalAmount}"></label>
-    <label th:text="RON"></label>
-
 
 </form>
 </body>

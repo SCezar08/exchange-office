@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Exchanger</title>
+    <link th:href = "@{/css/background.css}" rel="stylesheet">
     <link th:href = "@{/css/button.css}" rel="stylesheet">
     <link th:href = "@{/css/amount-border.css}" rel="stylesheet">
-
 </head>
 <body>
 <form action="/ron-to-foreign" method="post">
@@ -33,11 +33,10 @@
         <p style="color:red;" th:text="${error}"></p>
     </div>
 
-    <label th:name="result">Result: </label>
+<!--    <label th:name="result">Result: </label>-->
     <label th:text="${finalAmount}"></label>
     <label th:text="${selectedCurrency}"></label>
     <label th:text="${selectedCurrencyFullName}"></label>
-
 
 </form>
 </body>
