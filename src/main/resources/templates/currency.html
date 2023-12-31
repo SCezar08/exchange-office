@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <title>Currency</title>
     <link th:href = "@{/css/background-gradient.css}" rel="stylesheet">
-    <link th:href = "@{/css/table.css}" rel="stylesheet">
-    <link th:href = "@{/css/button.css}" rel="stylesheet">
+    <link th:href = "@{/css/new-table.css}" rel="stylesheet">
+    <link th:href = "@{/css/new-button.css}" rel="stylesheet">
     <link th:href = "@{/css/header.css}" rel="stylesheet">
 </head>
 </head>
@@ -15,7 +15,7 @@
     <h1>Bnr exchange rates</h1>
 </div>
 <hr>
-<table border="1">
+<table class="center" border="1">
     <thead>
     <tr>
         <th>Currency</th>
@@ -30,13 +30,13 @@
     </tbody>
 </table>
 <form action="/ron-to-foreign" method="get">
-    <button type="submit" class="button button2">Exchange calculator: RON -> Foreign currency</button>
+    <button type="submit" class="button button-17">Exchange calculator: RON -> Foreign currency</button>
 </form>
 <form action="/foreign-to-ron" method="get">
-    <button type="submit" class="button button2">Exchange calculator: Foreign currency -> RON</button>
+    <button type="submit" class="button button-17">Exchange calculator: Foreign currency -> RON</button>
 </form>
 <form action="/update-database" method="get">
-    <button type="submit" class="button button2">Update Database</button>
+    <button type="submit" class="button button-17">Update Database</button>
 </form>
 
 </body>
