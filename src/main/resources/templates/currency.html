@@ -5,16 +5,26 @@
     <title>Currency</title>
     <link th:href = "@{/css/background-gradient.css}" rel="stylesheet">
     <link th:href = "@{/css/new-table.css}" rel="stylesheet">
-    <link th:href = "@{/css/new-button.css}" rel="stylesheet">
     <link th:href = "@{/css/header.css}" rel="stylesheet">
+    <link th:href = "@{/css/navigation-bar.css}" rel="stylesheet">
 </head>
 </head>
 <body>
 
 <div class="header">
     <h1>Bnr exchange rates</h1>
+        <nav>
+            <form action="/ron-to-foreign" method="get">
+                <button type="submit" class="button button-17">Exchange calculator: RON -> Foreign currency</button>
+            </form>
+            <form action="/foreign-to-ron" method="get">
+                <button type="submit" class="button button-17">Exchange calculator: Foreign currency -> RON</button>
+            </form>
+        </nav>
 </div>
+
 <hr>
+
 <table class="center" border="1">
     <thead>
     <tr>
@@ -23,21 +33,12 @@
     </tr>
     </thead>
     <tbody>
-    <tr th:each="currency : ${currencies}">
+        <tr th:each="currency : ${currencies}">
         <td th:text="${currency.currencyName + currency.fullName}"></td>
         <td th:text="${currency.exchangeRate}"></td>
-    </tr>
+        </tr>
     </tbody>
 </table>
-<form action="/ron-to-foreign" method="get">
-    <button type="submit" class="button button-17">Exchange calculator: RON -> Foreign currency</button>
-</form>
-<form action="/foreign-to-ron" method="get">
-    <button type="submit" class="button button-17">Exchange calculator: Foreign currency -> RON</button>
-</form>
-<form action="/update-database" method="get">
-    <button type="submit" class="button button-17">Update Database</button>
-</form>
 
 </body>
 </html>

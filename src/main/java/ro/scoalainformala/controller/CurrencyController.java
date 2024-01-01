@@ -20,7 +20,6 @@ import java.util.List;
 @Controller
 public class CurrencyController {
 
-    private static final File OUTPUT_FILE_PATH = new File("E:\\Proiect\\bnr-rates.xml");
     private final CurrencyService service;
     private final CurrencyRepo currencyRepo;
 
@@ -37,41 +36,3 @@ public class CurrencyController {
         return "currency";
     }
 }
-//    @GetMapping("/update-database")
-//    public String updateDatabase() {
-//
-//        try {
-//            Certificates.trustAllCertificates();
-//
-//            String xmlUrl = "https://www.bnr.ro/nbrfxrates.xml";
-//
-//            URL url = new URL(xmlUrl);
-//            HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
-//
-//            try (BufferedInputStream in = new BufferedInputStream(connection.getInputStream());
-//                 FileOutputStream fileOutputStream = new FileOutputStream(OUTPUT_FILE_PATH)) {
-//
-//                byte[] bytes = new byte[1024];
-//                int bytesRead;
-//                while ((bytesRead = in.read(bytes, 0, 1024)) != -1) {
-//                    fileOutputStream.write(bytes, 0, bytesRead);
-//                }
-//            }
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//        return "";
-//    }
-//}
-
-//    @GetMapping("/update-database")
-//    public String updateDatabase(Model model) {
-//        List<Currency> parsedCurrencies = ListOfParsedCurrency.parsedCurrency();
-//        currencyRepo.deleteAll();
-//        currencyRepo.saveAll(parsedCurrencies);
-//
-//        List<Currency> currencies = currencyRepo.findAll();
-//        model.addAttribute("currencies", currencies);
-//
-//        return "redirect:/currency";
-//    }

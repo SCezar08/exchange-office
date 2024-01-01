@@ -13,12 +13,13 @@ import java.util.List;
 public class CurrencyConfig {
 
     @Bean
-    CommandLineRunner commandLineRunner(CurrencyRepo currencyRepo) {
+    CommandLineRunner commandLineRunner(
+            CurrencyRepo currencyRepo) {
         return args -> {
-            if (currencyRepo.count() == 0) {
-                List<Currency> parsedCurrencies = ListOfParsedCurrency.parsedCurrency();
-                currencyRepo.saveAll(parsedCurrencies);
-            }
+            List<Currency> parsedCurrencies = ListOfParsedCurrency.parsedCurrency();
+
+            currencyRepo.saveAll(parsedCurrencies);
         };
     }
 }
+

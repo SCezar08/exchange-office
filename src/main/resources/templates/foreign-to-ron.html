@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Foreign to RON exchanger</title>
-    <link th:href = "@{/css/button.css}" rel="stylesheet">
+    <link th:href = "@{/css/calculator-background.css}" rel="stylesheet">
+    <link th:href = "@{/css/new-button.css}" rel="stylesheet">
     <link th:href = "@{/css/amount-border.css}" rel="stylesheet">
 </head>
 <body>
@@ -23,11 +24,11 @@
 
 
     <form th:action="@{/convert}" method="POST">
-        <button type="submit" class="button button2">Convert</button>
+        <button type="submit" class="button button-17">Convert</button>
     </form>
 
     <form>
-        <input type="button" value="Homepage" onclick="window.location.href='http://localhost:8080/currency'" class="button button2">
+        <input type="button" value="Homepage" onclick="window.location.href='http://localhost:8080/currency'" class="button button-17">
     </form>
 
     <div th:if="${error}" class="error-message">
