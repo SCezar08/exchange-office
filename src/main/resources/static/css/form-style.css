@@ -1,0 +1,33 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}
+
+form {
+    display: flex;
+    flex-direction: row; /* Set to row to align elements horizontally */
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    max-width: 400px;
+}
+
+form label,
+form select,
+form button,
+form input {
+    margin-right: 10px; /* Adjust the margin as needed */
+}
+
+.error-message {
+    text-align: center;
+}
+
+label {
+    display: block;
+    text-align: center;
+}
