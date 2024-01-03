@@ -1,0 +1,10 @@
+.result-labels {
+    display: flex;
+    justify-content: center;
+}
+
+.result-labels > label {
+    display: inline-block;
+    text-align: center;
+    margin: 0 3px; /* Add margin for spacing if needed */
+}

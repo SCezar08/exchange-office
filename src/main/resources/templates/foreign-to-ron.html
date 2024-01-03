@@ -7,6 +7,8 @@
     <link th:href = "@{/css/new-button.css}" rel="stylesheet">
     <link th:href = "@{/css/border.css}" rel="stylesheet">
     <link th:href = "@{/css/form-style.css}" rel="stylesheet">
+    <link th:href = "@{/css/form-control.css}" rel="stylesheet">
+    <link th:href = "@{/css/result-display.css}" rel="stylesheet">
 </head>
 <body>
 <form action="/foreign-to-ron" method="post">
@@ -35,7 +37,10 @@
         <p style="color:red;" th:text="${error}"></p>
     </div>
 
-    <label th:text="${finalAmount}"></label>
+    <div class="result-labels">
+        <label th:if="${finalAmount}" th:text="${finalAmount}"></label>
+        <label th:if="${finalAmount}">RON</label>
+    </div>
 
 </form>
 </body>
