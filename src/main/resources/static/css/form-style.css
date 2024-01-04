@@ -20,7 +20,7 @@ form label,
 form select,
 form button,
 form input {
-    margin-right: 10px; /* Adjust the margin as needed */
+    margin-right: 15px; /* Adjust the margin as needed */
 }
 
 .error-message {

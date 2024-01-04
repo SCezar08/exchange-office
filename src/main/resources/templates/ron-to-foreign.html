@@ -9,14 +9,14 @@
     <link th:href = "@{/css/form-style.css}" rel="stylesheet">
     <link th:href = "@{/css/form-control.css}" rel="stylesheet">
     <link th:href = "@{/css/result-display.css}" rel="stylesheet">
+    <link th:href = "@{/css/arrow.css}" rel="stylesheet">
 </head>
 <body>
 
 <form action="/ron-to-foreign" method="post">
-    <input type="text" id="amount" name="amount" placeholder="Enter amount" required th:maxlength="15" th:min="0.01" class="border">
+    <input type="text" id="amount" name="amount" placeholder="Enter amount in RON" required th:maxlength="15" th:min="0.01" class="border">
 
-
-    <label th:type="String">From RON TO:</label>
+    <span class="arrow">&rArr;</span>
 
     <label for="dropDownList"></label>
     <select class="form-control" id="dropDownList" name="currencyOption" required>
