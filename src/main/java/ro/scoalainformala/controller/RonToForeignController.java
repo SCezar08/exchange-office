@@ -38,12 +38,12 @@ public class RonToForeignController {
         try {
             originalAmount = Double.parseDouble(amount);
             if (originalAmount < 0.01) {
-                model.addAttribute("error", "Amount must be greater than or equal to 0.01.");
+                model.addAttribute("error", "Amount must be greater than or equal to 0.01!");
                 model.addAttribute("currencies", currencies);
                 return "ron-to-foreign";
             }
         } catch (NumberFormatException e) {
-            model.addAttribute("error", "Invalid amount format.");
+            model.addAttribute("error", "Invalid amount format!");
             model.addAttribute("currencies", currencies);
             return "ron-to-foreign";
         }

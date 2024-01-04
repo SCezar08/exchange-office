@@ -7,4 +7,6 @@
     display: inline-block;
     text-align: center;
     margin: 0 3px; /* Add margin for spacing if needed */
+    font-size: 50px;
+    font-weight: bold;
 }
