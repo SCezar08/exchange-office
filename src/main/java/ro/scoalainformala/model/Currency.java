@@ -96,6 +96,7 @@ public class Currency {
         CURRENCY_FULL_NAMES.put("NOK", " (Norwegian Kroner)");
         CURRENCY_FULL_NAMES.put("NZD", " (New Zealand Dollar)");
         CURRENCY_FULL_NAMES.put("PLN", " (Polish Zloty)");
+        CURRENCY_FULL_NAMES.put("RON", " (Leu Romanesc)");
         CURRENCY_FULL_NAMES.put("RSD", " (Serbian Dinar)");
         CURRENCY_FULL_NAMES.put("RUB", " (Russian Rouble)");
         CURRENCY_FULL_NAMES.put("SEK", " (Swedish Krona)");

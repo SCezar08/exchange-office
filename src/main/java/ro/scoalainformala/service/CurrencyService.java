@@ -24,6 +24,21 @@ public class CurrencyService {
         return currencyRepo.findAll();
     }
 
+    public double convertBetweenCurrencies(double amount, String fromCurrency, String toCurrency) {
+        Currency fromCurrencyObj = currencyRepo.findByCurrencyName(fromCurrency);
+        Currency toCurrencyObj = currencyRepo.findByCurrencyName(toCurrency);
+
+        double fromExchangeRate = fromCurrencyObj.getExchangeRate();
+        double toExchangeRate = toCurrencyObj.getExchangeRate();
+
+        // Convert the amount directly from the source currency to the target currency
+        double finalAmount = (amount * fromExchangeRate) / toExchangeRate;
+
+        BigDecimal bd = BigDecimal.valueOf(finalAmount).setScale(3, RoundingMode.HALF_UP);
+        return bd.doubleValue();
+    }
+
+
     public double convertRonToForeign(double amount, String selectedCurrency) {
         Currency currency = currencyRepo.findByCurrencyName(selectedCurrency);
         double exchangeRate = currency.getExchangeRate();

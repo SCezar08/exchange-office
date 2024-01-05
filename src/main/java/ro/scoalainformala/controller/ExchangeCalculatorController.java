@@ -1,6 +1,5 @@
 package ro.scoalainformala.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,25 +11,25 @@ import ro.scoalainformala.service.CurrencyService;
 import java.util.List;
 
 @Controller
-public class RonToForeignController {
+public class ExchangeCalculatorController {
 
     private final CurrencyService service;
 
-    @Autowired
-    public RonToForeignController(CurrencyService service) {
+    public ExchangeCalculatorController(CurrencyService service) {
         this.service = service;
     }
 
-    @GetMapping("/ron-to-foreign")
+    @GetMapping("/exchange-calculator")
     public String displayCurrency(Model model) {
         List<Currency> currencies = service.getCurrency();
         model.addAttribute("currencies", currencies);
-        return "ron-to-foreign";
+        return "exchange-calculator";
     }
 
-    @PostMapping("/ron-to-foreign")
+    @PostMapping("/exchange-calculator")
     public String convert(@RequestParam("amount") String amount,
-                          @RequestParam("currencyOption") String selectedCurrency,
+                          @RequestParam("fromCurrency") String fromCurrency,
+                          @RequestParam("toCurrency") String toCurrency,
                           Model model) {
         List<Currency> currencies = service.getCurrency();
         double originalAmount;
@@ -40,23 +39,24 @@ public class RonToForeignController {
             if (originalAmount < 0.01) {
                 model.addAttribute("error", "Amount must be greater than or equal to 0.01!");
                 model.addAttribute("currencies", currencies);
-                return "ron-to-foreign";
+                return "exchange-calculator";
             }
         } catch (NumberFormatException e) {
             model.addAttribute("error", "Invalid amount format!");
             model.addAttribute("currencies", currencies);
-            return "ron-to-foreign";
+            return "exchange-calculator";
         }
 
 
-        double finalAmount = service.convertRonToForeign(originalAmount, selectedCurrency);
-        String selectedCurrencyFullName = Currency.getCurrencyFullName(selectedCurrency);
+        double finalAmount = service.convertBetweenCurrencies(originalAmount, fromCurrency, toCurrency);
+        String selectedCurrencyFullName = Currency.getCurrencyFullName(toCurrency);
 
         model.addAttribute("currencies", currencies);
         model.addAttribute("originalAmount", originalAmount);
         model.addAttribute("finalAmount", finalAmount);
-        model.addAttribute("selectedCurrency", selectedCurrency);
+        model.addAttribute("fromCurrency", fromCurrency);
+        model.addAttribute("toCurrency", toCurrency);
         model.addAttribute("selectedCurrencyFullName", selectedCurrencyFullName);
-        return "ron-to-foreign";
+        return "exchange-calculator";
     }
 }

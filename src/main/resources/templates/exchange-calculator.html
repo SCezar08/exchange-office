@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
-    <title>Foreign to RON exchanger</title>
+    <title>Exchange calculator</title>
     <link th:href = "@{/css/calculator-background.css}" rel="stylesheet">
     <link th:href = "@{/css/new-button.css}" rel="stylesheet">
     <link th:href = "@{/css/border.css}" rel="stylesheet">
@@ -12,17 +12,23 @@
     <link th:href = "@{/css/arrow.css}" rel="stylesheet">
 </head>
 <body>
-<form action="/foreign-to-ron" method="post">
+
+<form action="/exchange-calculator" method="post">
     <input type="text" id="amount" name="amount" placeholder="Enter amount" required th:maxlength="15" th:min="0.01" class="border">
 
-
-    <label for="dropDownList"></label>
-    <select class="form-control" id="dropDownList" name="currencyOption" required>
-        <option value="">Select currency </option>
+    <label for="fromCurrency">From&rArr;</label>
+    <select class="form-control" id="fromCurrency" name="fromCurrency" required>
+        <option value="" >Source currency</option>
         <option th:each="currency : ${currencies}" th:value="${currency.currencyName}" th:text="${currency.currencyName + ' ' + currency.fullName}"></option>
     </select>
 
-    <span class="arrow">&rArr;RON</span>
+
+    <label for="toCurrency">To&rArr;</label>
+    <select class="form-control" id="toCurrency" name="toCurrency" required>
+        <option value="">Target currency </option>
+        <option th:each="currency : ${currencies}" th:value="${currency.currencyName}" th:text="${currency.currencyName + ' ' + currency.fullName}"></option>
+    </select>
+
 
     <form th:action="@{/convert}" method="POST">
         <button type="submit" class="button button-91">Convert</button>
@@ -37,8 +43,9 @@
     </div>
 
     <div class="result-labels">
-        <label th:if="${finalAmount}" th:text="${finalAmount}"></label>
-        <label th:if="${finalAmount}">(RON)</label>
+        <label th:text="${finalAmount}"></label>
+        <label th:text="${toCurrency}"></label>
+        <label th:text="${selectedCurrencyFullName}"></label>
     </div>
 
 </form>
