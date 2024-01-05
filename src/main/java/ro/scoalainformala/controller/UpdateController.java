@@ -15,6 +15,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Comparator;
 import java.util.List;
 
 @Controller
@@ -49,11 +50,15 @@ public class UpdateController {
                     fileOutputStream.write(bytes, 0, bytesRead);
                 }
             }
+            Currency ron = new Currency("RON", 1.0, " (Leu Romanesc)");
             // Parse the XML and get the list of currencies
             List<Currency> currencies = ListOfParsedCurrency.parsedCurrency();
 
+
             // Save the updated currencies to the database
             currencyRepo.deleteAll(); // Remove existing data
+            currencies.add(ron);
+            currencies.sort(Comparator.comparing(Currency::getCurrencyName));
             currencyRepo.saveAll(currencies);
 
             // Add the list of currencies to the model
