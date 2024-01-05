@@ -37,19 +37,4 @@ public class CurrencyService {
         BigDecimal bd = BigDecimal.valueOf(finalAmount).setScale(3, RoundingMode.HALF_UP);
         return bd.doubleValue();
     }
-
-
-    public double convertRonToForeign(double amount, String selectedCurrency) {
-        Currency currency = currencyRepo.findByCurrencyName(selectedCurrency);
-        double exchangeRate = currency.getExchangeRate();
-        BigDecimal bd = BigDecimal.valueOf(amount / exchangeRate).setScale(3, RoundingMode.HALF_UP);
-        return bd.doubleValue();
-    }
-
-    public double convertForeignToRon(double amount, String selectedCurrency) {
-        Currency currency = currencyRepo.findByCurrencyName(selectedCurrency);
-        double exchangeRate = currency.getExchangeRate();
-        BigDecimal bd = BigDecimal.valueOf(amount * exchangeRate).setScale(3, RoundingMode.HALF_UP);
-        return bd.doubleValue();
-    }
 }
