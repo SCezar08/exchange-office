@@ -7,15 +7,18 @@
     <link th:href = "@{/css/new-button.css}" rel="stylesheet">
     <link th:href = "@{/css/form-style.css}" rel="stylesheet">
     <link th:href = "@{/css/form-control.css}" rel="stylesheet">
+    <link th:href = "@{/css/header.css}" rel="stylesheet">
 </head>
 <body>
+
+<div th:if="${message}" th:text="${message}" class="header"></div>
 
 <form action="/update-database" method="post">
 <form>
     <input type="button" value="Homepage" onclick="window.location.href='http://localhost:8080/currency'" class="button button-91">
 </form>
 
-    <div th:if="${message}" th:text="${message}" style="color: #008CBA; font-size: larger; font-weight: bold;"></div>
+
 
 </form>
 </body>
