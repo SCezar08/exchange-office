@@ -11,10 +11,13 @@
 </head>
 <body>
 
+<!-- If there is a message, display it in the header -->
 <div th:if="${message}" th:text="${message}" class="header"></div>
 
+<!-- Form for updating the database -->
 <form action="/update-database" method="post">
 <form>
+    <!-- Button to return to the homepage -->
     <input type="button" value="Homepage" onclick="window.location.href='http://localhost:8080/currency'" class="button button-91">
 </form>
 

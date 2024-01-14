@@ -20,7 +20,13 @@ import java.util.List;
 @Controller
 public class CurrencyController {
 
+
+    // The CurrencyService is injected to provide business logic related to currencies.
+    // This service handles operations such as retrieving, updating, or processing currency-related data.
     private final CurrencyService service;
+
+    // The CurrencyRepo is injected to interact with the data storage, typically a database, for currency information.
+    // This repository is responsible for database operations like querying or updating currency data.
     private final CurrencyRepo currencyRepo;
 
     public CurrencyController(CurrencyService service, CurrencyRepo currencyRepo) {
@@ -29,6 +35,10 @@ public class CurrencyController {
     }
 
 
+    // Handles HTTP GET requests to "/currency" endpoint.
+    // Retrieves a list of currencies using the CurrencyService.
+    // Adds the list of currencies to the model, making it available to the view.
+    // Returns the name of the view template, in this case, "currency".
     @GetMapping("/currency")
     public String getAllCurrency(Model model) {
         List<Currency> currencies = service.getCurrency();

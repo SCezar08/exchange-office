@@ -13,12 +13,20 @@ import java.util.List;
 @Controller
 public class ExchangeCalculatorController {
 
+    // The CurrencyService is injected to provide business logic related to currencies.
     private final CurrencyService service;
 
+
+    // Constructor for ExchangeCalculatorController, initializing it with the required CurrencyService.
     public ExchangeCalculatorController(CurrencyService service) {
         this.service = service;
     }
 
+
+    // Handles HTTP GET requests to "/exchange-calculator" endpoint.
+    // Retrieves a list of currencies using the CurrencyService.
+    // Adds the list of currencies to the model, making it available to the view "exchange-calculator".
+    // Returns the name of the view template, "exchange-calculator".
     @GetMapping("/exchange-calculator")
     public String displayCurrency(Model model) {
         List<Currency> currencies = service.getCurrency();
@@ -26,6 +34,12 @@ public class ExchangeCalculatorController {
         return "exchange-calculator";
     }
 
+
+    // Handles HTTP POST requests to "/exchange-calculator" endpoint.
+    // Converts the provided amount from one currency to another using the CurrencyService.
+    // Validates the input amount and handles possible exceptions.
+    // Adds relevant attributes to the model for displaying results or error messages in the view.
+    // Returns the name of the view template, "exchange-calculator".
     @PostMapping("/exchange-calculator")
     public String convert(@RequestParam("amount") String amount,
                           @RequestParam("fromCurrency") String fromCurrency,

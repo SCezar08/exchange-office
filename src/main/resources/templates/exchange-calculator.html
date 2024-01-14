@@ -13,9 +13,12 @@
 </head>
 <body>
 
+<!-- Form for exchanging currencies -->
 <form action="/exchange-calculator" method="post">
+    <!-- Input field for entering the amount to be converted -->
     <input type="text" id="amount" name="amount" placeholder="Enter amount" required th:maxlength="15" th:min="0.01" class="border">
 
+    <!-- Dropdown list for selecting the source currency -->
     <label for="fromCurrency">From&rArr;</label>
     <select class="form-control" id="fromCurrency" name="fromCurrency" required>
         <option value="" >Source currency</option>
@@ -23,6 +26,7 @@
     </select>
 
 
+    <!-- Dropdown list for selecting the target currency -->
     <label for="toCurrency">To&rArr;</label>
     <select class="form-control" id="toCurrency" name="toCurrency" required>
         <option value="">Target currency </option>
@@ -30,18 +34,22 @@
     </select>
 
 
+    <!-- Form for submitting the conversion -->
     <form th:action="@{/convert}" method="POST">
         <button type="submit" class="button button-91">Convert</button>
     </form>
 
+    <!-- Form for returning to the homepage -->
     <form>
         <input type="button" value="Homepage" onclick="window.location.href='http://localhost:8080/currency'" class="button button-91">
     </form>
 
+    <!-- Display error message if there is an error -->
     <div th:if="${error}" class="error-message">
         <p style="color:red; font-size: larger; font-weight: bold;" th:text="${error}"></p>
     </div>
 
+    <!-- Display converted amount and target currency information -->
     <div class="result-labels">
         <label th:text="${finalAmount}"></label>
         <label th:text="${toCurrency}"></label>

@@ -23,13 +23,24 @@ public class UpdateController {
 
     private static final File OUTPUT_FILE_PATH = new File("E:\\Proiect\\bnr-rates.xml");
 
+
+    // The CurrencyRepo is injected to interact with the data storage, typically a database, for currency information.
     private final CurrencyRepo currencyRepo;
 
+
+    // Constructor for UpdateController, initializing it with the required CurrencyRepo.
     @Autowired
     public UpdateController(CurrencyRepo currencyRepo) {
         this.currencyRepo = currencyRepo;
     }
 
+
+    // Handles HTTP GET requests to "/update-database" endpoint.
+    // Downloads the latest currency exchange rates XML data from the BNR website and saves it to a local file.
+    // Parses the XML data to get the list of currencies.
+    // Deletes existing currency data in the database, adds a default RON currency, and saves the updated currencies.
+    // Adds the list of currencies to the model, along with a success message.
+    // Returns the name of the view template, "/update-database".
     @GetMapping("/update-database")
     public String updateDatabase(Model model) {
 
