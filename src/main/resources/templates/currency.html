@@ -37,10 +37,13 @@
     </tr>
     </thead>
     <tbody>
-        <tr th:each="currency : ${currencies}">
-        <td th:text="${currency.currencyName + currency.fullName}"></td>
+    <tr th:each="currency : ${currencies}">
+        <td>
+            <img th:src="@{'/images/flags/' + ${currency.currencyName} + '.png'}" width="28" height="29"/>
+            <span th:text="${currency.currencyName + currency.fullName}"></span>
+        </td>
         <td th:text="${currency.exchangeRate}"></td>
-        </tr>
+    </tr>
     </tbody>
 </table>
 
