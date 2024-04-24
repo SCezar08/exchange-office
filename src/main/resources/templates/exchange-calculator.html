@@ -51,9 +51,15 @@
 
     <!-- Display converted amount and target currency information -->
     <div class="result-labels">
+        <label>Original Amount: </label>
+        <label th:text="${originalAmount}"></label>
+        <label th:text="${fromCurrency}"></label>
+        <label th:text="${selectedFromCurrencyFullName}"></label>
+        <label>&rArr;</label>
         <label th:text="${finalAmount}"></label>
+        <label> </label>
         <label th:text="${toCurrency}"></label>
-        <label th:text="${selectedCurrencyFullName}"></label>
+        <label th:text="${selectedToCurrencyFullName}"></label>
     </div>
 
 </form>

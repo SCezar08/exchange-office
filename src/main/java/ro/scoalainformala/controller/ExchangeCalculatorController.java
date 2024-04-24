@@ -63,14 +63,16 @@ public class ExchangeCalculatorController {
 
 
         double finalAmount = service.convertBetweenCurrencies(originalAmount, fromCurrency, toCurrency);
-        String selectedCurrencyFullName = Currency.getCurrencyFullName(toCurrency);
+        String selectedToCurrencyFullName = Currency.getCurrencyFullName(toCurrency);
+        String selectedFromCurrencyFullName = Currency.getCurrencyFullName(fromCurrency);
 
         model.addAttribute("currencies", currencies);
         model.addAttribute("originalAmount", originalAmount);
         model.addAttribute("finalAmount", finalAmount);
         model.addAttribute("fromCurrency", fromCurrency);
+        model.addAttribute("selectedFromCurrencyFullName", selectedFromCurrencyFullName);
         model.addAttribute("toCurrency", toCurrency);
-        model.addAttribute("selectedCurrencyFullName", selectedCurrencyFullName);
+        model.addAttribute("selectedToCurrencyFullName", selectedToCurrencyFullName);
         return "exchange-calculator";
     }
 }

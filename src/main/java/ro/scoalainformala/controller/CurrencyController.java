@@ -1,8 +1,10 @@
 package ro.scoalainformala.controller;
 
+import jakarta.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import ro.scoalainformala.model.Currency;
 import ro.scoalainformala.repo.CurrencyRepo;
 import ro.scoalainformala.service.CurrencyService;
@@ -15,6 +17,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Comparator;
 import java.util.List;
 
 @Controller
