@@ -50,7 +50,7 @@
     </div>
 
     <!-- Display converted amount and target currency information -->
-    <div class="result-labels">
+    <div class="result-labels" th:if="${finalAmount != null}">
         <label>Original Amount: </label>
         <label th:text="${originalAmount}"></label>
         <label th:text="${fromCurrency}"></label>
